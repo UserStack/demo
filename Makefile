@@ -1,7 +1,12 @@
+default: run
+run:
+	fig up
 prepare:
+	make logs
+	make certs
+logs:
 	mkdir -p nginx-web/logs
 	mkdir -p nginx-app/logs
-	make certs
 certs:
 	mkdir -p nginx-web/certs
 	cd nginx-web/certs && \
