@@ -1,5 +1,9 @@
 # ustackweb-nginx-example
 
+## Docker Containers
+
+![image](./docs/containers.jpg)
+
 ## Environment Setup
 
 Have a working [Docker](https://www.docker.com/) environment with [fig](http://fig.sh).
