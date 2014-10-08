@@ -1,2 +1,1 @@
-ustack-nginx
-============
+# ustackweb-nginx-example
