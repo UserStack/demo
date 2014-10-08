@@ -1,5 +1,7 @@
 # ustackweb-nginx-example
 
+Example of a deployment of [ustackweb](https://github.com/UserStack/ustackweb) with [Single Sign-on](http://de.wikipedia.org/wiki/Single_Sign-on) behind [NGINX Reverse Proxy](http://nginx.com/resources/admin-guide/reverse-proxy/) based on [Docker](https://www.docker.com/) containers.
+
 ## Docker Containers
 
 ![image](./docs/containers.jpg)
