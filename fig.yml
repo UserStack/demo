@@ -1,0 +1,36 @@
+web:
+  image: shepmaster/nginx-template-image
+  ports:
+    - "80:80"
+  volumes:
+    - "nginx-web/config:/etc/nginx/sites-templates"
+    - "nginx-web/logs:/var/log/nginx"
+  links:
+    - ustackweb
+    - app
+ustackweb:
+  build: ../go/src/github.com/UserStack/ustackweb
+  command: "/go/bin/bee run"
+  ports:
+    - "8080:8080"
+  links:
+    - ustackd
+    - app
+  environment:
+    COOKIE_DOMAIN: myexample.com
+    USTACKWEB_PUBLIC_HOST: user.myexample.com
+ustackd:
+  build: ../go/src/github.com/UserStack/ustackd
+  command: go run ustackd.go -f -c /ustackd/ustackd.conf
+  volumes:
+    - "ustackd:/ustackd"
+  ports:
+    - "7654:7654"
+app:
+  image: shepmaster/nginx-template-image
+  expose:
+    - "80"
+  volumes:
+    - "nginx-app/config:/etc/nginx/sites-templates"
+    - "nginx-app/logs:/var/log/nginx"
+    - "nginx-app/public:/var/www/app"
