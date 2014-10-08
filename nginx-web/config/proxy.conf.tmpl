@@ -1,8 +1,19 @@
+# Wildcard SSL certificates;
+ssl_certificate     /etc/nginx/certs/server.crt;
+ssl_certificate_key /etc/nginx/certs/server.key;
+
+# Redirect HTTP to HTTPS;
+server {
+  server_name _;
+  return 301 https://$host$request_uri;
+}
+
 # reverse proxy with ustackweb
 server {
   # HTTP authentication backend;
   set $ustackweb_backend "http://${USTACKWEB_1_PORT_8080_TCP_ADDR}:8080";
   server_name _;
+  listen 443 ssl;
 
   # Proxy all the request to the backend;
   location / {

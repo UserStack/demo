@@ -2,9 +2,11 @@ web:
   image: shepmaster/nginx-template-image
   ports:
     - "80:80"
+    - "443:443"
   volumes:
     - "nginx-web/config:/etc/nginx/sites-templates"
     - "nginx-web/logs:/var/log/nginx"
+    - "nginx-web/certs:/etc/nginx/certs"
   links:
     - ustackweb
     - app
