@@ -96,6 +96,7 @@ before_install: |
   sleep 5
 
   # run the build
+  export PATH=$PATH:/usr/local/bin
   make test
 
   BASH
