@@ -15,3 +15,8 @@ certs:
 		cp server.key server.key.org && \
 		openssl rsa -in server.key.org -out server.key && \
 		openssl x509 -req -days 365 -in server.csr -signkey server.key -out server.crt
+test:
+	fig start
+	sleep 10
+	httperf --server myexample.com --port 443 --num-conns 100
+	fig stop
