@@ -4,11 +4,11 @@ run:
 prepare:
 	make logs
 	make certs
-	make symlinks
-symlinks: clean
-	mkdir -p symlinks
-	ln -s ${GOPATH}/src/github.com/UserStack/ustackweb symlinks/ustackweb
-	ln -s ${GOPATH}/src/github.com/UserStack/ustackd symlinks/ustackd
+	make copy
+copy: clean
+	mkdir -p tmp
+	cp -R ${GOPATH}/src/github.com/UserStack/ustackweb tmp/ustackweb
+	cp -R ${GOPATH}/src/github.com/UserStack/ustackd tmp/ustackd
 logs:
 	mkdir -p nginx-web/logs
 	mkdir -p nginx-app/logs
@@ -26,4 +26,4 @@ test:
 	httperf --server myexample.com --port 443 --num-conns 100
 	fig stop
 clean:
-	rm -rf symlinks
+	rm -rf tmp

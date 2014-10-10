@@ -2,4 +2,4 @@ nginx-app/logs
 nginx-web/logs
 nginx-web/certs
 ustackd/ustackd.db
-symlinks
+tmp
