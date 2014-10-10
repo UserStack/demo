@@ -96,8 +96,10 @@ before_install: |
   sleep 5
 
   # run the build
+  go install github.com/UserStack/ustackd github.com/UserStack/ustackweb
+  make copy
+  make logs
   ./fig up
-  make test
 
   BASH
 
