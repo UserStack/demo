@@ -11,7 +11,7 @@ web:
     - ustackweb
     - app
 ustackweb:
-  build: ../go/src/github.com/UserStack/ustackweb
+  build: symlinks/ustackweb
   command: "/go/bin/bee run"
   ports:
     - "8080:8080"
@@ -22,7 +22,7 @@ ustackweb:
     COOKIE_DOMAIN: myexample.com
     USTACKWEB_PUBLIC_HOST: user.myexample.com
 ustackd:
-  build: ../go/src/github.com/UserStack/ustackd
+  build: symlinks/ustackd
   command: go run ustackd.go -f -c /ustackd/ustackd.conf
   volumes:
     - "ustackd:/ustackd"

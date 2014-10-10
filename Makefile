@@ -4,6 +4,11 @@ run:
 prepare:
 	make logs
 	make certs
+	make symlinks
+symlinks: clean
+	mkdir -p symlinks
+	ln -s ${GOPATH}/src/github.com/UserStack/ustackweb symlinks/ustackweb
+	ln -s ${GOPATH}/src/github.com/UserStack/ustackd symlinks/ustackd
 logs:
 	mkdir -p nginx-web/logs
 	mkdir -p nginx-app/logs
@@ -20,3 +25,5 @@ test:
 	sleep 10
 	httperf --server myexample.com --port 443 --num-conns 100
 	fig stop
+clean:
+	rm -rf symlinks
