@@ -8,6 +8,7 @@ prepare:
 copy: clean
 	mkdir -p tmp
 	cp -R ${GOPATH}/src/github.com/UserStack/ustackweb tmp/ustackweb
+	cd tmp/ustackweb && make prepare_assets
 	cp -R ${GOPATH}/src/github.com/UserStack/ustackd tmp/ustackd
 logs:
 	mkdir -p nginx-web/logs
