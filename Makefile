@@ -4,12 +4,19 @@ run:
 prepare:
 	make logs
 	make certs
-	make copy
-copy: clean
+	make build
+build: clean
+	make build_ustackweb
+	make build_ustackd
+build_ustackweb:
 	mkdir -p tmp
 	cp -R ${GOPATH}/src/github.com/UserStack/ustackweb tmp/ustackweb
 	cd tmp/ustackweb && make prepare_assets
+	fig build ustackweb
+build_ustackd:
+	mkdir -p tmp
 	cp -R ${GOPATH}/src/github.com/UserStack/ustackd tmp/ustackd
+	fig build ustackd
 logs:
 	mkdir -p nginx-web/logs
 	mkdir -p nginx-app/logs
