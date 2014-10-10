@@ -96,10 +96,9 @@ before_install: |
   sleep 5
 
   # run the build
-  gvm use go1.3.3
-  export GOPATH=$HOME/gopath:$GOPATH
-  go get github.com/UserStack/ustackweb github.com/UserStack/ustackd
-  make copy
+  mkdir tmp
+  git clone https://github.com/UserStack/ustackweb tmp/ustackweb
+  git clone https://github.com/UserStack/ustackd tmp/ustackd
   make logs
   ./fig up
 
