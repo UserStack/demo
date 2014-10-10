@@ -4,7 +4,7 @@ go:
 
 before_install: |
   # install test dependencies
-  sudo apt-get install httperf
+  sudo apt-get install httperf golang
 
   # install fig
   curl -L https://github.com/docker/fig/releases/download/0.5.2/linux > fig
