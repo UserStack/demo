@@ -12,7 +12,6 @@ web:
     - app
 ustackweb:
   build: tmp/ustackweb
-  command: "/go/bin/bee run"
   ports:
     - "8080:8080"
   links:
