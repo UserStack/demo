@@ -4,7 +4,7 @@ go:
 
 before_install: |
   # install test dependencies
-  sudo apt-get install httperf golang
+  sudo apt-get install httperf
 
   # install fig
   curl -L https://github.com/docker/fig/releases/download/0.5.2/linux > fig
@@ -96,7 +96,9 @@ before_install: |
   sleep 5
 
   # run the build
-  go install github.com/UserStack/ustackd github.com/UserStack/ustackweb
+  gvm use go1.3.3
+  export GOPATH=$HOME/gopath:$GOPATH
+  go get github.com/UserStack/ustackweb github.com/UserStack/ustackd
   make copy
   make logs
   ./fig up
