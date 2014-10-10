@@ -7,8 +7,8 @@ before_install: |
   sudo apt-get install httperf
 
   # install fig
-  sudo curl -L https://github.com/docker/fig/releases/download/0.5.2/linux > /usr/local/bin/fig
-  sudo chmod +x /usr/local/bin/fig
+  curl -L https://github.com/docker/fig/releases/download/0.5.2/linux > fig
+  chmod +x fig
 
   # setup domains
   sudo echo "127.0.0.1 myexample.com user.myexample.com" >> /etc/hosts
@@ -96,7 +96,7 @@ before_install: |
   sleep 5
 
   # run the build
-  /usr/local/bin/fig up
+  ./fig up
   make test
 
   BASH
